@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Thymeleaf課題</title>
+</head>
+<body>
+    <h1 th:text="#{content.title}"></h1>
+    <h2 th:text="#{content.input.subtitle}"></h2>
+    <form method="post" action="/output">
+        <p th:text="#{content.input.instruction}"></p>
+        <p th:if="${not #strings.isEmpty(previous)}" th:text="'前回入力された値は「' + ${previous} + '」でした。'"></p>
+        <input type="text" name="val"th:value="${val}">
+        <button type="submit"th:text="#{content.input.button}"></button>
+
+    </form>
+</body>
+</html>
